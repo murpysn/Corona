@@ -49,6 +49,7 @@ public class GlobalKasus extends AppCompatActivity {
                 }
             }
         };
+        handler.sendMessageDelayed(new Message(),1000);
 
         getSupportActionBar().setTitle("Data Global Covid-19");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -56,13 +57,13 @@ public class GlobalKasus extends AppCompatActivity {
 
         dParse();
 
-        handler.sendMessageDelayed(new Message(),1000);
-
         final Dialog dialog = new Dialog(GlobalKasus.this);
         dialog.setContentView(R.layout.popup);
         dialog.setTitle("Meme");
 
         ImageView closeX = (ImageView) dialog.findViewById(R.id.closeX);
+        ImageView img = (ImageView) dialog.findViewById(R.id.meme);
+        img.setImageResource(R.drawable.meme1);
         /**
          * Jika x diklik, tutup dialog
          */

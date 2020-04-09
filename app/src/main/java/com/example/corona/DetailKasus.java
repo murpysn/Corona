@@ -5,10 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -47,14 +50,33 @@ public class DetailKasus extends AppCompatActivity {
                 }
             }
         };
+        handler.sendMessageDelayed(new Message(),1000);
 
-        getSupportActionBar().setTitle("Data Covid-19 Di Indonesia");
+        getSupportActionBar().setTitle("Data Covid-19 Indonesia");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         dQueue = Volley.newRequestQueue(this);
 
         dParse();
 
-        handler.sendMessageDelayed(new Message(),1000);
+        final Dialog dialog = new Dialog(DetailKasus.this);
+        dialog.setContentView(R.layout.popup);
+        dialog.setTitle("Meme");
+
+        ImageView closeX = (ImageView) dialog.findViewById(R.id.closeX);
+        ImageView img = (ImageView) dialog.findViewById(R.id.meme);
+        img.setImageResource(R.drawable.meme2);
+
+        /**
+         * Jika x diklik, tutup dialog
+         */
+        closeX.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
     }
 
     private void dParse(){

@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.ViewFlipper;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -30,6 +31,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class HomeActivity extends AppCompatActivity {
+    ViewFlipper v_flipper;
     TextView tv_positif, tv_sembuh, tv_meninggal, tv_r, tv_positifw, tv_sembuhw, tv_meninggalw;
     CardView cv_pro,cv_glo;
     RequestQueue queue;
@@ -37,6 +39,18 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        getSupportActionBar().setTitle("Pantau Covid-19");
+
+        int images[] = {R.drawable.slide1, R.drawable.slide2, R.drawable.slide3, R.drawable.slide4};
+        v_flipper = findViewById(R.id.v_flipper);
+
+        for (int i =0; i<images.length; i++){
+            fliverImages(images[i]);
+        }
+        for (int image: images)
+            fliverImages(image);
+
         tv_r = (TextView) this.findViewById(R.id.mywidget);
         tv_r.setSelected(true);
         tv_positif = (TextView) findViewById(R.id.tv_positif);
@@ -67,6 +81,20 @@ public class HomeActivity extends AppCompatActivity {
         getMeninggalw();
         getJSON();
     }
+
+    public  void  fliverImages(int images){
+        ImageView imageView = new ImageView(this);
+        imageView.setBackgroundResource(images);
+
+        v_flipper.addView(imageView);
+        v_flipper.setFlipInterval(3000);
+        v_flipper.setAutoStart(true);
+
+        v_flipper.setInAnimation(this,android.R.anim.slide_in_left);
+        v_flipper.setOutAnimation(this,android.R.anim.slide_out_right);
+
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){

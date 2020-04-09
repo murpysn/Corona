@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="260dp"
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
 
@@ -20,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="left"
-        android:text="Aplikasi ini Dibuat Oleh \n Murpy satriya Nugraha \nE31181496"
+        android:text="Aplikasi ini Dibuat Oleh \nMurpy satriya Nugraha \nE31181496"
         android:layout_margin="5dp"
         android:layout_toRightOf="@+id/iv_icon" />/>
 
@@ -29,8 +29,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/iv_icon"
-        android:layout_margin="5dp"
         android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="155dp"
+        android:layout_marginBottom="5dp"
         android:text="Ok" />
 
 </RelativeLayout>
