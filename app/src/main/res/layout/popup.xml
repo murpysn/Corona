@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="#544B57"
+        tools:layout_editor_absoluteX="36dp"
+        tools:layout_editor_absoluteY="236dp"
+        >
+    <ImageView
+        android:clickable="true"
+        android:id="@+id/closeX"
+        android:layout_gravity="right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/meme"
+        android:src="@drawable/ic_close_black_24dp"/>
+
+        <ImageView
+            android:id="@+id/meme"
+            android:layout_width="wrap_content"
+            android:layout_height="350dp"
+            android:src="@drawable/meme" />
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

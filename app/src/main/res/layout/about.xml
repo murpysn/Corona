@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    tools:context=".HomeActivity">
+
+    <ImageView
+        android:layout_alignParentLeft="true"
+        android:id="@+id/iv_icon"
+        android:src="@drawable/polije"
+        android:layout_width="80dp"
+        android:layout_height="70dp"
+        android:layout_margin="5dp" />
+
+    <TextView
+        android:padding="5dp"
+        android:id="@+id/tv_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:text="Aplikasi ini Dibuat Oleh \n Murpy satriya Nugraha \nE31181496"
+        android:layout_margin="5dp"
+        android:layout_toRightOf="@+id/iv_icon" />/>
+
+    <Button
+        android:id="@+id/bt_ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_icon"
+        android:layout_margin="5dp"
+        android:layout_alignParentRight="true"
+        android:text="Ok" />
+
+</RelativeLayout>
