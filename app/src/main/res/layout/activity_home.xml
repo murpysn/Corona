@@ -4,11 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/biru"
     tools:context=".HomeActivity">
-
-    <RelativeLayout
+    <!--akhir wadah running text-->
+    <!--Wadah data Api dengan fungsi bisa discroll-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <!--mulai bagi slider image-->
+            <RelativeLayout
         android:id="@+id/slider"
         android:layout_width="match_parent"
         android:layout_height="250dp">
@@ -17,9 +25,12 @@
             android:id="@+id/v_flipper"
             android:layout_width="match_parent"
             android:layout_height="250dp"
+           android:contextClickable="true"
             android:layout_centerHorizontal="true">
         </ViewFlipper>
     </RelativeLayout>
+<!--akhir wadah slider image-->
+<!--mulai wadah running text-->
     <RelativeLayout
         android:id="@+id/rt"
         android:layout_width="wrap_content"
@@ -51,12 +62,13 @@
                 android:paddingTop="2dp"
                 android:scrollHorizontally="true"
                 android:singleLine="true"
-                android:text="Jangan Keluar! Dirumah Aja! Nyusahin Pemerintah Aja! Kesehatanmu Itu Loh.."
+                android:text="HINDARI CORONA! Tetaplah 'Hidup' Walau Tidak Berguna, Jangan Nyusahin Pemerintah! #DirumahAja"
                 android:textColor="@color/putih"
                 android:textSize="14sp"
                 tools:ignore="EllipsizeMaxLines" />
         </LinearLayout>
     </RelativeLayout>
+<!--wadah api indonesia-->
     <androidx.cardview.widget.CardView
         app:cardUseCompatPadding="true"
         app:cardPreventCornerOverlap="true"
@@ -196,6 +208,8 @@
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
+<!--tutup wadah api indonesia-->
+<!--wadah api global-->
     <androidx.cardview.widget.CardView
         app:cardUseCompatPadding="true"
         app:cardPreventCornerOverlap="true"
@@ -335,4 +349,7 @@
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
+<!--tutup wadah global-->
+    </LinearLayout>
+    </ScrollView>
 </LinearLayout>

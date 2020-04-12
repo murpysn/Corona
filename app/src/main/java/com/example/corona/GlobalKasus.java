@@ -36,20 +36,6 @@ public class GlobalKasus extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_global);
-        final ProgressDialog progressDialog = new ProgressDialog(GlobalKasus.this);
-        progressDialog.setMessage("Memuat Data Global");
-        progressDialog.show();
-
-        Handler handler = new Handler(){
-            @Override
-            public void handleMessage(@NonNull Message msg){
-                super.handleMessage(msg);
-                if(progressDialog.isShowing()){
-                    progressDialog.dismiss();
-                }
-            }
-        };
-        handler.sendMessageDelayed(new Message(),1000);
 
         getSupportActionBar().setTitle("Data Global Covid-19");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -75,9 +61,14 @@ public class GlobalKasus extends AppCompatActivity {
         });
 
         dialog.show();
+
     }
 
     private void dParse(){
+        final ProgressDialog progressDialog = new ProgressDialog(GlobalKasus.this);
+        progressDialog.setMessage("Memuat Data Global");
+        progressDialog.show();
+
         String url = "https://api.kawalcorona.com/";
 
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
@@ -104,6 +95,17 @@ public class GlobalKasus extends AppCompatActivity {
 
                     dRecycle.setLayoutManager(dLayoutManager);
                     dRecycle.setAdapter(dAdapter);
+
+                    Handler handler = new Handler(){
+                        @Override
+                        public void handleMessage(@NonNull Message msg){
+                            super.handleMessage(msg);
+                            if(progressDialog.isShowing()){
+                                progressDialog.dismiss();
+                            }
+                        }
+                    };
+                    handler.sendMessageDelayed(new Message(),1000);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

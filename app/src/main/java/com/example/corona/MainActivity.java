@@ -8,7 +8,7 @@ import android.os.Handler;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
-        private int waktu_loading=4000;
+        private int waktu_loading=4000; //mengatur lama tampilan splash screen
 
         //4000=4 detik
 
@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
                     //setelah loading maka akan langsung berpindah ke home activity
                     Intent home=new Intent(MainActivity.this, HomeActivity.class);
-                    startActivity(home);
+                    startActivity(home); //memulai intent
                     finish();
 
                 }

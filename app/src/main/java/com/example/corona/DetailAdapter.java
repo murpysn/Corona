@@ -18,7 +18,7 @@ public class DetailAdapter extends RecyclerView.Adapter<DetailAdapter.DetailView
 
         public DetailViewHolder(@NonNull View itemView){
             super(itemView);
-
+// inisialisasi bahwa tv_pro,pos,sem,men merupakan tv_ dari item_kasus
         tv_pro = itemView.findViewById(R.id.tv_provinsid);
         tv_pos = itemView.findViewById(R.id.tv_positifd);
         tv_sem = itemView.findViewById(R.id.tv_sembuhd);
@@ -32,6 +32,7 @@ public DetailAdapter(ArrayList<DetailItem> detailItems1){
 
 @NonNull
 @Override
+//Menginflate item_kasus
 public DetailAdapter.DetailViewHolder onCreateViewHolder (@NonNull ViewGroup parent, int viewType){
     View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_kasus, parent, false);
     DetailViewHolder pvh = new DetailViewHolder(v);
@@ -42,13 +43,13 @@ public DetailAdapter.DetailViewHolder onCreateViewHolder (@NonNull ViewGroup par
 @Override
 public void onBindViewHolder(@NonNull DetailAdapter.DetailViewHolder holder, int position){
     DetailItem curItem = detailItems.get(position);
-
+    //set nilai textview pada item_kasus dengan mengambil nilai dari DetailItem
     holder.tv_pro.setText(curItem.getTv_provinsid());
     holder.tv_pos.setText(curItem.getTv_positifd());
     holder.tv_sem.setText(curItem.getTv_sembuhd());
     holder.tv_men.setText(curItem.getTv_meninggald());
 }
-
+//menghitung jumlah data dari detailItems
 @Override
 public int getItemCount(){
     return detailItems.size();
