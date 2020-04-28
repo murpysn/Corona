@@ -6,8 +6,6 @@
     android:layout_height="match_parent"
     android:background="@color/biru"
     tools:context=".HomeActivity">
-    <!--akhir wadah running text-->
-    <!--Wadah data Api dengan fungsi bisa discroll-->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
